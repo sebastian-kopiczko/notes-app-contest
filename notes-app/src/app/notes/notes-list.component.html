@@ -1,13 +1,27 @@
 <div class="list-group side__list">
   <button *ngFor="let note of notes" (click)="selectItem(note)" [ngClass]="{ 'active': note == selectedNote }" [disabled]="note == selectedNote"
-    class="list-group-item">
+    class="list-group-item ">
     <div>
-      <button class="btn btn-danger pull-right">delete</button>
-  <p>{{ note.title }}</p>
-  <div class="column">
-    <p class="badge pull-left">{{ note.createdOn | date: "dd/MM/yyyy HH:mm" }}</p>
-    <b *ngIf="note.content.length > 25" class="">It is long one</b>
+     <p class="note-list__title">{{ note.title }}</p>
+
+  <div class="note-list__row">
+    <div class="date-holder">
+      <label for="">Created on:</label>
+      <p class="label label-default">{{ note.createdOn | date: "dd/MM/yyyy HH:mm" }}</p>
+      <span *ngIf="note.content.length > 25">It is long one</span>
+    </div>
+    <div class="note-list__due-date"><label for="">Due date:</label> 
+      <span class="label label-default">17-04-2017</span>
+    </div>
+    <div class="note-list__priority "><label for="">Priority:</label> 
+      <span class="label label-info">low</span>
+    </div>
   </div>
+  <div class="note-panel">
+      <button class="btn btn-info btn-xs">edit</button>
+  <button *ngIf="true" class="btn btn-warning btn-xs">cancel</button>
+  <button class="btn btn-danger btn-xs pull-right">delete</button>
+</div>
 </div>
 </button>
 </div>
