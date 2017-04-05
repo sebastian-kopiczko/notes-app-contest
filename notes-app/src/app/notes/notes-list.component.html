@@ -1,0 +1,13 @@
+<div class="list-group side__list">
+  <button *ngFor="let note of notes" (click)="selectItem(note)" [ngClass]="{ 'active': note == selectedNote }" [disabled]="note == selectedNote"
+    class="list-group-item">
+    <div>
+      <button class="btn btn-danger pull-right">delete</button>
+  <p>{{ note.title }}</p>
+  <div class="column">
+    <p class="badge pull-left">{{ note.createdOn | date: "dd/MM/yyyy HH:mm" }}</p>
+    <b *ngIf="note.content.length > 25" class="">It is long one</b>
+  </div>
+</div>
+</button>
+</div>

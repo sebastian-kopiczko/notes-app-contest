@@ -1,0 +1,19 @@
+.notes-list__button {
+  margin-bottom: 15px;
+}
+
+.notes-list__button__elements {
+  display: inline-block;
+  margin-right: 17px;
+}
+
+.new-note__content-input {
+  min-height: 200px;
+  max-width: 100%;
+}
+
+.column {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}

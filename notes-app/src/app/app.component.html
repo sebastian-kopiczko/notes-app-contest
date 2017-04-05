@@ -1,0 +1,31 @@
+<header>
+  <div class="container">
+    <div class="page-header">
+      <h1 style="display: inline-block">
+        <img src="assets/goyello-logo.png" style="width: 65px;"> Notes app</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 side">
+        <div class="notes-list__button">
+          <h4 class="notes-list__button__elements">Your recent notes</h4>
+          <button (click)="createNote()" class="btn btn-success btn-lg notes-list__button__elements pull-right">+</button>
+        </div>
+        <!--BEGIN: Notes list-->
+        <app-notes-list [notes]="notes" (selectedItem)="onSelectedItem($event)"></app-notes-list>
+        <!--END: Notes list-->
+      </div>
+
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div [ngSwitch]="viewState">
+          <app-note-details *ngSwitchCase="notesViewStateRef.display" [selectedNote]="selectedNote"></app-note-details>
+          <app-create-note *ngSwitchCase="notesViewStateRef.create" (createdItem)="onCreatedItem($event)"></app-create-note>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
