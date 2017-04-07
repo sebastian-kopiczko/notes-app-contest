@@ -10,10 +10,13 @@
         <label for="note-content">Note:</label>
         <textarea [(ngModel)]="newNote.content" required class="form-control new-note__content-input" name="note-content" id="note-content"></textarea>
       </div>
-      <select [(ngModel)]="selectedPriority" name="priority">
-  <option *ngFor="let p of priorities; let i = index" [attr.data-index]="i">{{p}}</option>
-</select>
-      <button type="submit" [disabled]="!newNoteForm.form.valid" class="btn btn-success">Submit</button>
-    </form>
-  </div>
+      <div class="panel-details"><div>
+          <label for="priority">Priority</label>
+        <select [(ngModel)]="selectedPriority" name="priority" required>
+            <option *ngFor="let p of priorities; let i = index" [attr.data-index]="i">{{p}}</option>
+        </select></div>
+        <div>Due date</div>
+ </div>
+  <button type="submit" [disabled]="!newNoteForm.form.valid" class="btn btn-success">Submit</button>
+  </form>
 </div>

@@ -1,4 +1,10 @@
 
+.panel-body .panel-details {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between; }
+
 .column {
   width: 150px;
   display: flex;
@@ -78,5 +84,5 @@
   background-color: #F38434; }
 
 .new-note__content-input {
-  min-height: 202px;
+  min-height: 200px;
   max-width: 100%; }
