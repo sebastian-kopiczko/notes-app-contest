@@ -1,0 +1,104 @@
+.column {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+.notes-app {
+  &__button {
+    margin-bottom: 15px;
+    border: 10px solid lime;
+    &__elements {
+      display: inline-block;
+      margin-right: 17px;
+    }
+  }
+}
+
+.notes-list {
+  &__button {
+    margin-bottom: 15px;
+  }
+  &__elements {
+    display: inline-block;
+    margin-right: 17px;
+  }
+}
+
+.note-list {
+  &__row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    label {
+      font-weight: normal;
+    }
+  }
+  &__title {
+    width: 100%;
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding-top: 10px;
+  }
+  &__due-date,
+  &__priority {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__due-date {
+    margin-right: 15px;
+  }
+  &__priority {
+    margin-right: 85px;
+  }
+}
+
+.date-holder {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  span {
+    font-weight: bolder;
+    padding: 5px;
+    width: 100px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.note-panel {
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  padding-top: 10px;
+  .btn {
+    text-transform: uppercase;
+    font-size: 10px;
+    &-danger {
+      margin-top: 2px;
+    }
+    &-delete:hover {
+      background-color: #d9534f;
+      color: #fff;
+    }
+    &-edit:hover {
+      background-color: #449D44;
+      color: #fff;
+    }
+  }
+}
+
+.btn-cancel {
+  background-color: #F38434;
+}
+
+.new-note__content-input {
+  min-height: 200px;
+  max-width: 100%;
+}

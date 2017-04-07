@@ -17,4 +17,6 @@ export class CreateNoteComponent {
 
     this.newNote = {} as Note;
   }
+
+ 
 }

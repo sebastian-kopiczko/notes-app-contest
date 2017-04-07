@@ -10,7 +10,7 @@ enum NotesViewState {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../css/app.component.css']
 })
 export class AppComponent implements OnInit {
   notes: Note[] = [];
@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
     this.viewState = NotesViewState.display;
   }
 
+  onDeletedItem(note: Note) {
+    this.viewState = NotesViewState.display;
+  }
+  
   createNote() {
     this.viewState = NotesViewState.create;
   }

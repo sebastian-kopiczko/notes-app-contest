@@ -8,11 +8,20 @@ import { Note } from './note.model';
 export class NotesListComponent {
   @Input() notes = [] as Note[];
   @Output() selectedItem = new EventEmitter<Note>();
+  @Output() deletedItem = new EventEmitter<Note>();
 
   selectedNote: Note;
+  deletedNote: Note;
 
   selectItem(note: Note) {
     this.selectedNote = note;
     this.selectedItem.emit(note);
+    console.log('test');
+  }
+
+  deleteItem(note: Note) {
+    this.deletedNote = note;
+    var deletedNoteIndex = this.notes.indexOf(note);
+    this.notes.splice(deletedNoteIndex, 1);
   }
 }
