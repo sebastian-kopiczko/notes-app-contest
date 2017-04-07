@@ -8,15 +8,18 @@ import { Note } from './note.model';
 export class CreateNoteComponent {
   @Output() createdItem = new EventEmitter<Note>();
 
+
   newNote = {} as Note;
+
+  priorities = ['low', 'medium', 'high'];
+  selectedPriority = null;
 
   onSubmit() {
     this.newNote.createdOn = new Date();
 
+    this.newNote.priority = this.selectedPriority;
     this.createdItem.emit(this.newNote);
 
     this.newNote = {} as Note;
   }
-
- 
 }
