@@ -3,3 +3,11 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between; }
+  .panel-body .panel-details__priority {
+    position: relative;
+    width: 100px;
+    margin-bottom: 15px; }
+  .panel-body .panel-details__dueDate {
+    position: relative;
+    width: 165px;
+    margin-bottom: 15px; }

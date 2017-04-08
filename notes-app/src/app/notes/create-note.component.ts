@@ -3,13 +3,11 @@ import { Note } from './note.model';
 
 @Component({
   selector: 'app-create-note',
-  templateUrl: './create-note.component.html',
-  styles:[`
-    
-  `]
+  templateUrl: './create-note.component.html'
 })
 export class CreateNoteComponent {
   @Output() createdItem = new EventEmitter<Note>();
+  @Output() date = new EventEmitter<Note>();
 
 
   newNote = {} as Note;
@@ -19,10 +17,9 @@ export class CreateNoteComponent {
   
   onSubmit() {
     this.newNote.createdOn = new Date();
-
     this.newNote.priority = this.selectedPriority;
     this.createdItem.emit(this.newNote);
-
     this.newNote = {} as Note;
   }
+ 
 }

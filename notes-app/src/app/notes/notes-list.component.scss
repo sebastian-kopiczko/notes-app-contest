@@ -12,6 +12,7 @@
     &__elements {
       display: inline-block;
       margin-right: 17px;
+      
     }
   }
 }
@@ -19,12 +20,11 @@
 .notes-list {
   &__button {
     margin-bottom: 15px;
-  }
   &__elements {
     display: inline-block;
-    margin-right: 17px;
+    margin-bottom: 10px;
   }
-}
+}}
 
 .note-list {
   &__row {
@@ -43,18 +43,19 @@
     font-size: 1.2em;
     padding-top: 10px;
   }
+  &__details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+  }
   &__due-date,
   &__priority {
-    position: absolute;
-    top: 0;
-    right: 0;
     
   }
   &__due-date {
-    margin-right: 15px;
   }
   &__priority {
-    margin-right: 85px;
   }
 }
 

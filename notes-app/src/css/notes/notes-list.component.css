@@ -13,10 +13,9 @@
 
 .notes-list__button {
   margin-bottom: 15px; }
-
-.notes-list__elements {
-  display: inline-block;
-  margin-right: 17px; }
+  .notes-list__button__elements {
+    display: inline-block;
+    margin-bottom: 10px; }
 
 .note-list__row {
   display: flex;
@@ -33,16 +32,11 @@
   font-size: 1.2em;
   padding-top: 10px; }
 
-.note-list__due-date, .note-list__priority {
-  position: absolute;
-  top: 0;
-  right: 0; }
-
-.note-list__due-date {
-  margin-right: 15px; }
-
-.note-list__priority {
-  margin-right: 85px; }
+.note-list__details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center; }
 
 .date-holder {
   display: flex;

@@ -12,11 +12,11 @@ export class NotesListComponent {
 
   selectedNote: Note;
   deletedNote: Note;
-
+  
+  
   selectItem(note: Note) {
     this.selectedNote = note;
     this.selectedItem.emit(note);
-    console.log('test');
   }
 
   deleteItem(note: Note) {

@@ -1,5 +1,13 @@
 <div *ngFor="let note of notes" (click)="selectItem(note)" class="list-group side__list">
   <button [ngClass]="{ 'active': note == selectedNote }" [disabled]="note == selectedNote" class="list-group-item ">
+    <div class="note-list__detail pull-right">
+  <span *ngIf="note.priority">
+      <span *ngIf="note.priority == 'low'" class="note-list__priority label label-info">{{ note.priority }}</span>
+  <span *ngIf="note.priority == 'medium'" class="note-list__priority label label-warning">{{ note.priority }}</span>
+  <span *ngIf="note.priority == 'high'" class="note-list__priority label label-danger">{{ note.priority }}</span>
+  </span>
+  <span *ngIf="note.dueDate" class="note-list__due-date label label-default">Due date: {{ note.dueDate | date: "dd/MM/yyyy" }}</span>
+</div>
     <div>
      <p class="note-list__title">{{ note.title }}</p>
 </div>
@@ -8,11 +16,7 @@
     <span class="label label-default">{{ note.createdOn | date: "dd/MM/yyyy HH:mm" }}</span>
     <span *ngIf="note.content.length > 25">It is long one</span>
   </div>
-  <span *ngIf="note.priority == 'low'" class="note-list__priority label label-info">{{ note.priority }}</span>
-  <span *ngIf="note.priority == 'medium'" class="note-list__priority label label-warning">{{ note.priority }}</span>
-  <span *ngIf="note.priority == 'high'" class="note-list__priority label label-danger">{{ note.priority }}</span>
-  <span class="note-list__due-date label label-default">17-04-2017</span>
-
+  
 </div>
  <div class="note-panel">
    <button type="button" class="btn btn-edit btn-default btn-xs">

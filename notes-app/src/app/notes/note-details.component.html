@@ -1,5 +1,12 @@
 <div class="panel panel-default">
     <div class="panel-heading">
+        <span *ngIf="selectedNote.priority" class="pull-left">
+            <span *ngIf="selectedNote.priority == 'low'" class="note-list__priority label label-info">{{ selectedNote.priority }} priority</span>
+            <span *ngIf="selectedNote.priority == 'medium'" class="note-list__priority label label-warning">{{ selectedNote.priority }} priority</span>            
+            <span *ngIf="selectedNote.priority == 'high'" class="note-list__priority label label-danger">{{ selectedNote.priority }} priority</span>            
+            </span>   
+        <span *ngIf="selectedNote.dueDate" class="note-list__due-date label label-default pull-right">Due date: {{ selectedNote.dueDate
+| date: "dd/MM/yyyy" }}</span>              
         <h3>
             {{ selectedNote.title }}
         </h3>

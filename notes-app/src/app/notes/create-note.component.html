@@ -10,12 +10,16 @@
         <label for="note-content">Note:</label>
         <textarea [(ngModel)]="newNote.content" required class="form-control new-note__content-input" name="note-content" id="note-content"></textarea>
       </div>
-      <div class="panel-details"><div>
+      <div class="panel-details"><div class="panel-details__priority">
           <label for="priority">Priority</label>
-        <select [(ngModel)]="selectedPriority" name="priority" required>
+          <!--bit ugly select - when tried to add placeholder then options weren't visible and vice versa. no idea why.-->
+        <select [(ngModel)]="selectedPriority" name="priority" required class="form-control"> 
+          <!--<option value="" disabled="true" [selected]="false">--please select--</option>-->
             <option *ngFor="let p of priorities; let i = index" [attr.data-index]="i">{{p}}</option>
         </select></div>
-        <div>Due date</div>
+        <div class="panel-details__dueDate"><label for="dueDate">Due date</label> 
+          <input type="date" [(ngModel)]="newNote.dueDate" class="form-control" name="dueDate" required/>
+        </div>
  </div>
   <button type="submit" [disabled]="!newNoteForm.form.valid" class="btn btn-success">Submit</button>
   </form>
