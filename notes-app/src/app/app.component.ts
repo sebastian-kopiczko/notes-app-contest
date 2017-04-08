@@ -15,8 +15,9 @@ enum NotesViewState {
 export class AppComponent implements OnInit {
   notes: Note[] = [];
   selectedNote: Note;
+  editedNote: Note;
   viewState = NotesViewState.display;
-
+  onCancel: void;
   notesViewStateRef = NotesViewState;
 
   constructor(private notesService: NotesService) {
@@ -36,11 +37,14 @@ export class AppComponent implements OnInit {
     this.notesService.push(note);
     this.viewState = NotesViewState.display;
   }
+  onCanceledItem(note: Note) {;
+    this.viewState = NotesViewState.display;
+  } 
 
   onDeletedItem(note: Note) {
     this.viewState = NotesViewState.display;
   }
-  
+
   createNote() {
     this.viewState = NotesViewState.create;
   }

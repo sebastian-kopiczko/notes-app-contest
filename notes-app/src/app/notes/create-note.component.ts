@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Note } from './note.model';
+import { AppComponent } from './../app.component';
 
 @Component({
   selector: 'app-create-note',
@@ -8,8 +9,8 @@ import { Note } from './note.model';
 export class CreateNoteComponent {
   @Output() createdItem = new EventEmitter<Note>();
   @Output() date = new EventEmitter<Note>();
-
-
+  @Output() canceledItem = new EventEmitter<Note>();
+  
   newNote = {} as Note;
 
   priorities = ['low', 'medium', 'high'];
@@ -22,4 +23,8 @@ export class CreateNoteComponent {
     this.newNote = {} as Note;
   }
  
+  onCancel() {
+    this.canceledItem.emit(this.newNote);    
+    this.newNote = {} as Note;
+  } 
 }

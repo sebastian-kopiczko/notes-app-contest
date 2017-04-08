@@ -22,5 +22,6 @@
         </div>
  </div>
   <button type="submit" [disabled]="!newNoteForm.form.valid" class="btn btn-success">Submit</button>
+  <button (click)="onCancel()" type="button" class="btn btn-warning">Cancel</button>
   </form>
 </div>
