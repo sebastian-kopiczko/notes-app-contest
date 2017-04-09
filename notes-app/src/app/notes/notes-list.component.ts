@@ -1,10 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from './note.model';
 
-enum CreateNotesView {
-  display = 0,
-  create = 1
-}
+
 
 @Component({
   selector: 'app-notes-list',
@@ -16,13 +13,9 @@ export class NotesListComponent {
   @Output() deletedItem = new EventEmitter<Note>();
   @Output() editedItem = new EventEmitter<Note>();
 
-
-  viewState = CreateNotesView.display;
-  createNotesViewRef = CreateNotesView;
   selectedNote: Note;
   deletedNote: Note;
   editedNote: Note;
-  
   
   selectItem(note: Note) {
     this.selectedNote = note;
@@ -35,9 +28,9 @@ export class NotesListComponent {
     this.notes.splice(deletedNoteIndex, 1);
   }
 
-  cancelItem() {
-    console.log('ok');
-    this.viewState = CreateNotesView.display;
+  editItem(note: Note) {
+    this.selectedNote = note;
+    console.log(note);
+    this.editedItem.emit(note);
   }
-
 }

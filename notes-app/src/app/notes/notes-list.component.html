@@ -1,4 +1,4 @@
-<div *ngFor="let note of notes " (click)="selectItem(note)" class="list-group side__list">
+<div *ngFor="let note of notes" (click)="selectItem(note)" class="list-group side__list">
   <button [ngClass]="{ 'active': note == selectedNote }" [disabled]="note == selectedNote" class="list-group-item ">
     <div class="note-list__detail pull-right">
   <span *ngIf="note.priority">

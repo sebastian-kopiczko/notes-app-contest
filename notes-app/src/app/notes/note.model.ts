@@ -4,5 +4,7 @@ export interface Note {
     createdOn: Date;
     dueDate: Date;
     priority: string;
+    priorityValue: number;
+    
 }
 

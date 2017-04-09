@@ -16,8 +16,11 @@
           <button (click)="createNote()" class="btn btn-success btn-lg notes-list__button__elements pull-right">+</button>
         </div>
         <div class="filter-notes">Filter notes by
-          <button class="btn btn-default btn-xs">priority</button>
-          <button class="btn btn-default btn-xs">due date</button>
+          <button (click)="filterTitle(notes)" class="btn btn-default btn-xs">Title</button>
+          
+          <button (click)="filterDueDateAsc(notes)" class="btn btn-default btn-xs">due date ascending</button>
+          <button (click)="filterDueDateDesc(notes)" class="btn btn-default btn-xs">due date descending</button>
+          <button (click)="filterPriority(notes)" class="btn btn-default btn-xs">priority</button>
         </div>
         <!--BEGIN: Notes list-->
         <app-notes-list [notes]="notes" (selectedItem)="onSelectedItem($event)"></app-notes-list>

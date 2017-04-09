@@ -15,10 +15,12 @@ export class CreateNoteComponent {
 
   priorities = ['low', 'medium', 'high'];
   selectedPriority = null;
+
   
   onSubmit() {
     this.newNote.createdOn = new Date();
-    this.newNote.priority = this.selectedPriority;
+    this.setPriority(this.newNote);
+    console.log(this.newNote);
     this.createdItem.emit(this.newNote);
     this.newNote = {} as Note;
   }
@@ -27,4 +29,22 @@ export class CreateNoteComponent {
     this.canceledItem.emit(this.newNote);    
     this.newNote = {} as Note;
   } 
+
+  setPriority(note: Note) { 
+    this.newNote.priority = this.selectedPriority;
+    let tempPriorityValue = 0;
+    switch (this.selectedPriority) {
+      case 'low':
+        tempPriorityValue = 1;
+        break;
+      case 'medium':
+        tempPriorityValue = 2;
+        break;
+      case 'high':
+        tempPriorityValue = 3;
+        break;
+    }
+    this.newNote.priorityValue = tempPriorityValue;
+    
+  }
 }
