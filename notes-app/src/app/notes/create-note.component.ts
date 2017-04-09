@@ -20,7 +20,6 @@ export class CreateNoteComponent {
   onSubmit() {
     this.newNote.createdOn = new Date();
     this.setPriority(this.newNote);
-    console.log(this.newNote);
     this.createdItem.emit(this.newNote);
     this.newNote = {} as Note;
   }
