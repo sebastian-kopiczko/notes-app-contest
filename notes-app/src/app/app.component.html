@@ -15,12 +15,24 @@
           <h4 class="notes-list__button__elements">Your recent notes</h4>
           <button (click)="createNote()" class="btn btn-success btn-lg notes-list__button__elements pull-right">+</button>
         </div>
-        <div class="filter-notes">Filter notes by
-          <button (click)="filterTitle(notes)" class="btn btn-default btn-xs">Title</button>
-          
-          <button (click)="filterDueDateAsc(notes)" class="btn btn-default btn-xs">due date ascending</button>
-          <button (click)="filterDueDateDesc(notes)" class="btn btn-default btn-xs">due date descending</button>
-          <button (click)="filterPriority(notes)" class="btn btn-default btn-xs">priority</button>
+        <!--wondering if is it good idea to make filter-notes in separate component-->
+        <div class="filter-notes">
+          <!--<button (click)="urgentNote(notes)" type="button" class="btn btn-default btn-xs">highlight notes to do for tommorow!</button>-->
+          <span>Filter notes by</span>
+          <div>
+            <button (click)="filterTitle(notes)" type="button" class="btn btn-default btn-xs">Title
+                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+            </button>
+            <button (click)="filterPriority(notes)" type="button" class="btn btn-default btn-xs">Priority
+                  <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+            </button>
+            <button (click)="filterDueDateAsc(notes)" type="button" class="btn btn-default btn-xs">Due date
+                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+            </button>
+              <!--<button (click)="filterDueDateDesc(notes)" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+              </button>-->
+          </div>
         </div>
         <!--BEGIN: Notes list-->
         <app-notes-list [notes]="notes" (selectedItem)="onSelectedItem($event)"></app-notes-list>
@@ -29,8 +41,8 @@
 
       <div class="col-sm-6 col-md-6 col-lg-6">
         <div [ngSwitch]="viewState">
-          <app-note-details *ngSwitchCase="notesViewStateRef.display"  (canceledItem)="onCanceledItem($event)" [selectedNote]="selectedNote"></app-note-details>
-          <app-create-note *ngSwitchCase="notesViewStateRef.create" (canceledItem)="onCanceledItem($event)" (createdItem)="onCreatedItem($event)"></app-create-note>
+          <app-note-details *ngSwitchCase="notesViewStateRef.display" [selectedNote]="selectedNote"></app-note-details>
+          <app-create-note *ngSwitchCase="notesViewStateRef.create" (editedItem)="onEditedItem($event)" (canceledItem)="onCanceledItem($event)" (createdItem)="onCreatedItem($event)" ></app-create-note>
         </div>
       </div>
     </div>

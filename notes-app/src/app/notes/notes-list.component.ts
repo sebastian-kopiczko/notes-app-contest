@@ -16,7 +16,8 @@ export class NotesListComponent {
   selectedNote: Note;
   deletedNote: Note;
   editedNote: Note;
-  
+  urgentNote: Note;
+
   selectItem(note: Note) {
     this.selectedNote = note;
     this.selectedItem.emit(note);
@@ -30,7 +31,7 @@ export class NotesListComponent {
 
   editItem(note: Note) {
     this.selectedNote = note;
-    console.log(note);
-    this.editedItem.emit(note);
+    console.log('editing item ' + note.title);
   }
+
 }

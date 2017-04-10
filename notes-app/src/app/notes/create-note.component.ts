@@ -44,6 +44,5 @@ export class CreateNoteComponent {
         break;
     }
     this.newNote.priorityValue = tempPriorityValue;
-    
   }
 }

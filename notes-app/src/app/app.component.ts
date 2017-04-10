@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   selectedNote: Note;
   editedNote: Note;
   viewState = NotesViewState.display;
-  onCancel: void;
   notesViewStateRef = NotesViewState;
 
   constructor(private notesService: NotesService) {
@@ -45,18 +44,31 @@ export class AppComponent implements OnInit {
   onDeletedItem(note: Note) {
     this.viewState = NotesViewState.display;
   }
+
+  //trying to create viewState on edit btn click, but not working
   onEditedItem(note: Note) {
-    this.selectedNote = note;
+    this.editedNote = note;
     this.viewState = NotesViewState.create;
-    console.log('k');
   }
 
   createNote() {
     this.viewState = NotesViewState.create;
   }
 
+  // urgentNote(notes: Note[]) {
+  //   const today = new Date().getTime();
+  //   notes.forEach(note => {
+  //     let dueDate = note.dueDate.getTime();
+  //     console.log(note.title + dueDate + today);
+  //    })
+  //  }
+
+
+//I was trying to create export class Filters and separate filtering logic but I find it difficult to use sorting functions properly
+//so this part look clumsy but in fact that works  :)
+  
   filterTitle(notes: Note[]) {
-    function sortTitle(a, b) {
+    var sortTitle = (a, b) => {
       const aTitle = a.title.toUpperCase();
       const bTitle = b.title.toUpperCase();
       let temp = 0;
@@ -67,26 +79,25 @@ export class AppComponent implements OnInit {
   }
   
   filterDueDateAsc(notes: Note[]) {
-    function sortDueDateAsc(a, b) {
+    var sortDueDateAsc = (a, b) => {
       return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime() 
     }
     this.notes.sort(sortDueDateAsc);
   }
 
-  filterDueDateDesc(notes: Note[]) {
-    function sortDueDateDesc(a, b) {
-      return new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
-    }
-    this.notes.sort(sortDueDateDesc);
-  }
-
   filterPriority(notes: Note[]) {
-    function sortPriority(a, b) {
+    var sortPriorityAsc = (a, b) => {
       let temp = 0;
-      a.priorityValue > b.priorityValue ? temp = 1 : temp = -1;
+      a.priorityValue > b.priorityValue ? temp = -1 : temp = 1;
       return temp;
     }
-    this.notes.sort(sortPriority);
+    this.notes.sort(sortPriorityAsc);
   }
-  
+
+  // filterDueDateDesc(notes: Note[]) {
+  //   var sortDueDateDesc = (a, b) => {
+  //     return new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
+  //   }
+  //   this.notes.sort(sortDueDateDesc);
+  // }
 }
